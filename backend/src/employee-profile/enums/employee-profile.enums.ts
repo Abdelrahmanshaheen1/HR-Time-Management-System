@@ -1,0 +1,72 @@
+export enum Gender {
+  MALE = 'MALE',
+  FEMALE = 'FEMALE',
+}
+
+export enum MaritalStatus {
+  SINGLE = 'SINGLE',
+  MARRIED = 'MARRIED',
+  DIVORCED = 'DIVORCED',
+  WIDOWED = 'WIDOWED',
+}
+
+export enum EmployeeStatus {
+  ACTIVE = 'ACTIVE',
+  INACTIVE = 'INACTIVE',
+  ON_LEAVE = 'ON_LEAVE',
+  SUSPENDED = 'SUSPENDED',
+  RETIRED = 'RETIRED',
+  PROBATION = 'PROBATION',
+  TERMINATED = 'TERMINATED',
+}
+
+export enum ContractType {
+  FULL_TIME_CONTRACT = 'FULL_TIME_CONTRACT',
+  PART_TIME_CONTRACT = 'PART_TIME_CONTRACT',
+} // to be checked with Recruitment SubSystem
+
+export enum WorkType {
+  FULL_TIME = 'FULL_TIME',
+  PART_TIME = 'PART_TIME',
+} // to be checked with Recruitment SubSystem
+
+export enum SystemRole {
+  DEPARTMENT_EMPLOYEE = 'DEPARTMENT_EMPLOYEE',
+  DEPARTMENT_HEAD = 'DEPARTMENT_HEAD',
+  HR_MANAGER = 'HR_MANAGER',
+  HR_EMPLOYEE = 'HR_EMPLOYEE',
+  PAYROLL_SPECIALIST = 'PAYROLL_SPECIALIST',
+  PAYROLL_MANAGER = 'PAYROLL_MANAGER',
+  SYSTEM_ADMIN = 'SYSTEM_ADMIN',
+  LEGAL_POLICY_ADMIN = 'LEGAL_POLICY_ADMIN',
+  RECRUITER = 'RECRUITER',
+  FINANCE_STAFF = 'FINANCE_STAFF',
+  JOB_CANDIDATE = 'JOB_CANDIDATE',
+  HR_ADMIN = 'HR_ADMIN',
+}
+
+export enum CandidateStatus {
+  APPLIED = 'APPLIED',
+  SCREENING = 'SCREENING',
+  INTERVIEW = 'INTERVIEW',
+  OFFER_SENT = 'OFFER_SENT',
+  OFFER_ACCEPTED = 'OFFER_ACCEPTED',
+  HIRED = 'HIRED',
+  REJECTED = 'REJECTED',
+  WITHDRAWN = 'WITHDRAWN',
+}
+
+export enum GraduationType {
+  UNDERGRADE = 'UNDERGRADE',
+  BACHELOR = 'BACHELOR',
+  MASTER = 'MASTER',
+  PHD = 'PHD',
+  OTHER = 'OTHER',
+}
+
+export enum ProfileChangeStatus {
+  PENDING = 'PENDING',
+  APPROVED = 'APPROVED',
+  REJECTED = 'REJECTED',
+  CANCELED = 'CANCELED',
+}
