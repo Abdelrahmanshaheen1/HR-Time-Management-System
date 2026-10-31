@@ -55,15 +55,13 @@ Follow these steps to get the development environment running locally.
     ```
 
 3.  **Set up environment variables:**
-    Create a `.env` file in the `backend` directory with the following variables:
+    Copy the template and edit it:
 
-    ```env
-    # Connection string for your MongoDB instance
-    MONGODB_URI=mongodb://localhost:27017/hr-main
-
-    # Secret key for JWT signing
-    JWT_SECRET=your-super-secret-key
+    ```bash
+    cp .env.example .env
     ```
+
+    The two that matter locally are `MONGODB_URI` (defaults to `mongodb://localhost:27017/hr-main`) and `JWT_SECRET`. Set `JWT_SECRET` yourself: if it is missing, the code falls back to a hard-coded development secret, which is not safe outside your own machine. The `SMTP_*`, `FRONTEND_URL` and `HR_NOTIFICATION_EMAIL` variables are only needed for the leave-notification e-mails. See [`backend/.env.example`](backend/.env.example) for every variable.
 
 4.  **Seed the database (Optional but Recommended):**
     The project includes scripts to populate the database with initial data.
@@ -72,15 +70,17 @@ Follow these steps to get the development environment running locally.
     # This script seeds core organizational data
     npm run seed
 
-    # This script seeds users and roles for authentication
+    # This script seeds four demo users (all with the password 123456) and their roles
     npm run seed:auth
     ```
+
+    > **Warning:** `seed:auth` first **deletes everything** in the `employee_profiles` and `employee_system_roles` collections. Only run it against a local development database. The demo password is for local use only.
 
 5.  **Run the development server:**
     ```bash
     npm run start:dev
     ```
-    The backend API will be available at `http://localhost:5000`.
+    The backend API will be available at `http://localhost:3000` (override with `PORT` in `.env`).
 
 ### 2.3. Frontend Setup
 
@@ -97,18 +97,19 @@ Follow these steps to get the development environment running locally.
     ```
 
 3.  **Set up environment variables:**
-    Create a `.env.local` file in the `frontend` directory:
+    Copy the template to `.env.local`:
 
-    ```env
-    # URL of the running backend server
-    NEXT_PUBLIC_API_URL=http://localhost:5000
+    ```bash
+    cp .env.example .env.local
     ```
+
+    `NEXT_PUBLIC_API_URL` must point at the running backend (`http://localhost:3000` by default). Some pages fall back to a hard-coded URL when it is unset, and a few of those fallbacks use port 5000, so set it explicitly. The onboarding, offboarding and performance pages read `NEXT_PUBLIC_API_BASE_URL` / `NEXT_PUBLIC_BACKEND_URL` instead; the template sets all three. See [`frontend/.env.example`](frontend/.env.example).
 
 4.  **Run the development server:**
     ```bash
     npm run dev
     ```
-    The frontend application will be available at `http://localhost:3000`.
+    The frontend application will be available at `http://localhost:3001` (the `dev` script runs `next dev -p 3001`).
 
 ## 3. System Architecture
 
